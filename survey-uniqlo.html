@@ -2357,13 +2357,33 @@
     // 方案B: Google Apps Script — 部署 Web App 后将 URL 填入
     // 方案C: 自建后端 — 填入你自己的 HTTPS API 地址
     // ============================================================
-    const SUBMISSION_ENDPOINT = ""; // 示例: "https://formspree.io/f/YOUR_FORM_ID"
+    const SUBMISSION_ENDPOINT = "https://formsubmit.co/ajax/lipengpengjikeyin01@gmail.com";
 
     function questionNeedsAnswer(question) {
       const answer = state.answers[question.id];
       const missingBase = question.required && (answer === undefined || answer === "" || (Array.isArray(answer) && answer.length === 0));
       const missingOther = isOtherSelected(question) && !String(state.answers[otherAnswerId(question)] || "").trim();
       return missingBase || missingOther;
+    }
+
+    function buildSubmitBody() {
+      const p = buildSubmissionPayload();
+      return {
+        _subject: "Uniqlo Survey - " + p.response_id,
+        _template: "table",
+        response_id: p.response_id,
+        survey_version: p.survey_version,
+        order_variant: p.order_variant,
+        candidate_order: JSON.stringify(p.candidate_order),
+        recruitment_source: p.recruitment_source,
+        started_at: p.started_at,
+        submitted_at_client: p.submitted_at_client,
+        duration_seconds_client: p.duration_seconds_client,
+        contact_email: p.contact?.email || "",
+        contact_phone: p.contact?.phone || "",
+        answers: JSON.stringify(p.answers),
+        derived: JSON.stringify(p.derived),
+      };
     }
 
     async function submitSurvey() {
@@ -2374,12 +2394,13 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "omit",
-        body: JSON.stringify(buildSubmissionPayload()),
+        body: JSON.stringify(buildSubmitBody()),
       });
       let result = null;
       try { result = await response.json(); } catch (_) { /* A JSON receipt is required below. */ }
-      if (!response.ok || result?.ok !== true) throw new Error("Submission was not acknowledged by the server.");
-      return { localOnly: false, receipt: result.receipt || null };
+      const acknowledged = response.ok && (result?.ok === true || result?.success === true || result?.success === "true");
+      if (!acknowledged) throw new Error("Submission was not acknowledged by the server.");
+      return { localOnly: false, receipt: result?.receipt || null };
     }
 
     function renderContact() {
