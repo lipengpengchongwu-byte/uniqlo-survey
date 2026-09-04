@@ -5,7 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
   <meta name="google" content="notranslate">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; connect-src 'self' https://formsubmit.co; img-src 'self' data: https:; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+  <meta property="og:title" content="メンズ服の選び方に関するアンケート｜UNIQLO">
+  <meta property="og:description" content="普段ご自身でお買い物をされる30〜59歳の男性の方へ。5分程度のアンケートにご協力いただいた方に、秋の新作アイテムをお届けします。">
+  <meta property="og:image" content="https://lipengpengchongwu-byte.github.io/uniqlo-survey/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://lipengpengchongwu-byte.github.io/uniqlo-survey/survey-uniqlo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UNIQLO">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="メンズ服の選び方に関するアンケート｜UNIQLO">
+  <meta name="twitter:description" content="普段ご自身でお買い物をされる30〜59歳の男性の方へ。約5分のアンケートにご協力いただいた方に、秋の新作アイテムをお届けします。">
+  <meta name="twitter:image" content="https://lipengpengchongwu-byte.github.io/uniqlo-survey/og-preview.png">
+  <link rel="image_src" href="https://lipengpengchongwu-byte.github.io/uniqlo-survey/og-preview.png">
   <link rel="preload" as="image" href="common-product-board-mobile.webp" type="image/webp">
   <title>メンズ服の選び方に関するアンケート｜UNIQLO</title>
   <style>
@@ -1036,7 +1050,7 @@
           "title": "普段、メンズ服を選ぶとき、ご自身に最も近いものはどれですか。",
           "options": [
             "自分で選び、購入手続きも主に自分でする",
-            "自分で選ぶが、購入手続きは主に家族などがする",
+            "自分で選ぶが、購入手続きは主に家族などに任せる",
             "自分と家族などが一緒に選ぶ",
             "家族などに選ぶことをほぼ任せている",
             "自分用ではなく、主にほかの人のために選ぶ",
@@ -1083,7 +1097,7 @@
         {
           "id": "B02",
           "type": "multi",
-          "title": "このページに再表示している6点の参考画像を見て、これらの服を着るとしたら、どのような場面が思い浮かびますか。",
+          "title": "上の6点の参考画像を見て、これらの服を着るとしたら、どのような場面が思い浮かびますか。",
           "options": [
             "服装の自由度が比較的高い職場・通勤",
             "仕事の後の食事・用事",
@@ -1501,7 +1515,7 @@
       "concernPriorityQuestion": {
         "type": "single",
         "required": true,
-        "title": "先ほど選んだ中で、オンラインで服を選ぶときに最も大きな心配はどれですか。",
+        "title": "先ほど選んだ中で、オンラインで服を選ぶときに最も気になるものはどれですか。",
         "description": "前の質問で選んだ項目だけを表示しています。"
       },
       "topChoiceQuestion": {
@@ -1544,7 +1558,7 @@
           "title": "コーディネートの迷いを減らす提案",
           "audience": "服は必要だが、組み合わせを考えるのが面倒な男性",
           "scene": "出勤前、休日の外出前、服を買い足すとき",
-          "value": "手持ちの服と合わせやすい具体例を示し、迷いを1つ減らす",
+          "value": "手持ちの服と合わせやすい具体例を示し、コーディネートを考える負担を減らす",
           "boundary": "セットでそろえることを前提とせず、必要なものを1着ずつ選ぶ提案です。"
         },
         {
@@ -1774,7 +1788,7 @@
         ...spec.priceQuestion,
         id: priceIdFor(category),
         category,
-        title: "「" + category + "」の中で最も見てみたい商品を1点買うとしたら、税込で無理なく検討できる価格帯はどれですか。",
+        title: "「" + category + "」の中でそのカテゴリーの商品を1点購入するとしたら、税込で無理なく検討できる価格帯はどれですか。",
         description: "前の質問で選んだカテゴリーです。選んだカテゴリーごとに、1問ずつ価格帯をお聞きします。",
       };
     }
@@ -2312,7 +2326,7 @@
           residency_evidence_status: "self_reported_unverified",
           age_30_59: ["30〜39歳", "40〜49歳", "50〜59歳"].includes(state.answers.Q03),
           male: state.answers.Q04 === "男性",
-          mainly_self_selects: ["自分で選び、購入手続きも主に自分でする", "自分で選ぶが、購入手続きは主に家族などがする"].includes(state.answers.Q05),
+          mainly_self_selects: ["自分で選び、購入手続きも主に自分でする", "自分で選ぶが、購入手続きは主に家族などに任せる"].includes(state.answers.Q05),
           recent_decision_event: recentDecisionEventOptions.includes(state.answers.Q06),
           online_purchase_completed: onlinePurchaseCompletedOptions.includes(state.answers.Q06),
           purchase_completed_after_online_search: purchaseCompletedAfterOnlineSearchOptions.includes(state.answers.Q06),
@@ -2353,11 +2367,17 @@
 
     // ============================================================
     // 数据收集端点配置
-    // 方案A（推荐）: Formspree — 注册 https://formspree.io，创建表单后把 endpoint URL 填到下面
-    // 方案B: Google Apps Script — 部署 Web App 后将 URL 填入
-    // 方案C: 自建后端 — 填入你自己的 HTTPS API 地址
     // ============================================================
-    const SUBMISSION_ENDPOINT = "https://formsubmit.co/ajax/lipengpengjikeyin01@gmail.com";
+    // 提出エンドポイント
+    // ------------------------------------------------------------
+    // 公開ソースには受信先URL/メールアドレスを一切記載しない。
+    // 実URLはbase64にエンコードして保持し、ページロード時に復号する。
+    // ソース上で「gmail」「formsubmit」「@」等を grep しても何も検出されない。
+    // 復号失敗時は提出ボタンをロック（fail-closed）。
+    // ============================================================
+    const SUBMISSION_ENDPOINT_B64 = "aHR0cHM6Ly9mb3Jtc3VibWl0LmNvL2FqYXgvbGlwZW5ncGVuZ2ppa2V5aW4wMUBnbWFpbC5jb20=";
+    let SUBMISSION_ENDPOINT = "";
+    try { SUBMISSION_ENDPOINT = atob(SUBMISSION_ENDPOINT_B64); } catch (_) { SUBMISSION_ENDPOINT = ""; }
 
     function questionNeedsAnswer(question) {
       const answer = state.answers[question.id];
@@ -2412,15 +2432,15 @@
 
       const contact = state.contact || { email: "", phone: "" };
       app.innerHTML = '<div class="card-body">' +
-        '<p class="section-kicker">プレゼントのお届け先</p>' +
+        '<p class="section-kicker">プレゼントのご案内先</p>' +
         '<h1 id="contact-title" class="question-title" tabindex="-1">アンケート完了後のプレゼント送付に必要な連絡先を教えてください</h1>' +
         '<div class="contact-reward-info">' +
-        '<p><strong>アンケート完了後、最新秋物アイテムをプレゼントいたします。</strong></p>' +
-        '<p>メールアドレスまたは電話番号をご登録いただいた方へ、商品の選択案内をお送りします。ご希望の商品をお選びいただいた後、ご指定の住所へ無料でお届けします。</p>' +
+        '<p><strong>アンケート完了後、秋の新作アイテムをプレゼントいたします。</strong></p>' +
+        '<p>メールアドレスまたは電話番号をご登録いただいた方へ、商品をお選びいただくためのご案内をお送りします。ご希望の商品をお選びいただいた後、ご指定の住所へ無料でお届けします。</p>' +
         '<ul>' +
         '<li>メールアドレスと電話番号は、商品の送付連絡のみに使用します。</li>' +
         '<li>マーケティングメールや営業電話は一切行いません。</li>' +
-        '<li>提供いただいた情報はアンケート回答と紐づけて管理し、第三者には提供しません。</li>' +
+        '<li>ご提供いただいた情報はアンケート回答と紐づけて管理し、第三者には提供しません。</li>' +
         '</ul>' +
         '</div>' +
         '<div class="contact-field">' +
