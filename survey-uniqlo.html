@@ -1,0 +1,2558 @@
+<!doctype html>
+<html lang="ja" translate="no" class="notranslate">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+  <link rel="preload" as="image" href="common-product-board-mobile.webp" type="image/webp">
+  <title>メンズ服の選び方に関するアンケート｜UNIQLO</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1a1a1a;
+      --muted: #666666;
+      --paper: #ffffff;
+      --canvas: #f5f5f5;
+      --line: #e0e0e0;
+      --accent: #e60012;
+      --accent-deep: #b80010;
+      --accent-soft: #fde6e8;
+      --sage: #e8f0e8;
+      --success: #1a4d2e;
+      --warning: #fff8e1;
+      --warning-ink: #5e4b22;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.10);
+      --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.06);
+      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { background: var(--canvas); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(220, 30, 55, 0.05), transparent 28rem),
+        radial-gradient(circle at 92% 90%, rgba(26, 26, 26, 0.04), transparent 32rem),
+        var(--canvas);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    button, textarea { font: inherit; }
+
+    .page-shell {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 28px 18px 52px;
+    }
+
+    .survey-frame {
+      width: min(840px, 100%);
+      margin: 0 auto;
+    }
+
+    .progress-wrap {
+      margin-bottom: 14px;
+      padding: 14px 18px 13px;
+      border: 1px solid rgba(224, 224, 224, 0.9);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .progress-track {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: #ebebeb;
+    }
+
+    .progress-bar {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), #e85d6e);
+      transition: width 220ms ease;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid rgba(224, 224, 224, 0.96);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .card-body { padding: clamp(24px, 5vw, 48px); }
+    .intro-card .card-body { padding: 0; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 6vw, 58px);
+      color: #fff;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 56%, #1a1a1a 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -100px;
+      top: -100px;
+      border-radius: 50%;
+      background: rgba(220, 30, 55, 0.15);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      left: -60px;
+      bottom: -60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .brand-bar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 0;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .brand-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      color: #e0e0e0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(28px, 5.5vw, 50px);
+      line-height: 1.32;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: #d0d0d0;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+    }
+
+    .meta-pill {
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 99px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .intro-start {
+      position: relative;
+      z-index: 1;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
+    .intro-start .button { min-width: 240px; }
+
+    .intro-start-note {
+      position: relative;
+      z-index: 1;
+      margin: 12px 0 0;
+      color: #d8d8d8;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .resume-panel {
+      position: relative;
+      z-index: 1;
+      margin-top: 14px;
+      padding: 13px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .resume-panel .button-link {
+      min-height: 44px;
+      margin-left: 6px;
+      padding: 8px 10px;
+      border: 0;
+      color: #fff;
+      background: transparent;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .reward-banner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(220, 30, 55, 0.18), rgba(220, 30, 55, 0.08));
+      border: 1px solid rgba(220, 30, 55, 0.25);
+    }
+
+    .reward-icon {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--accent);
+      font-size: 20px;
+    }
+
+    .reward-text strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .reward-text p {
+      margin: 0;
+      color: #d0d0d0;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .intro-content { padding: clamp(24px, 5vw, 48px); }
+
+    .purpose {
+      margin: 0 0 26px;
+      color: #3f3f3f;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0 0 22px;
+    }
+
+    .trust-card {
+      min-height: 154px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fafafa;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .trust-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-number {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font: 800 13px/1 Arial, sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .trust-card h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .trust-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .privacy-note {
+      margin: 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: var(--warning-ink);
+      background: var(--warning);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+    }
+
+    .question-title {
+      margin: 0 0 12px;
+      font-size: clamp(23px, 4.5vw, 34px);
+      line-height: 1.48;
+      letter-spacing: -0.025em;
+    }
+
+    .question-description {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .context-stimulus { margin: 0 0 28px; }
+
+    .stimulus-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stimulus-label strong { color: var(--ink); }
+
+    .stimulus-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .stimulus {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 610px;
+      margin: 0;
+      border: 1px solid #e8e8e8;
+      border-radius: 18px;
+      object-fit: contain;
+      background: #f7f7f7;
+    }
+
+    .concept-card {
+      margin: 0 0 28px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fafafa;
+    }
+
+    .concept-card-compact > summary {
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      align-items: center;
+      min-height: 72px;
+      color: #fff;
+      background: #1a1a1a;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .concept-card-compact > summary::-webkit-details-marker { display: none; }
+
+    .concept-card-compact > summary::after {
+      content: "＋";
+      padding: 0 16px;
+      color: #d8d8d8;
+      font-weight: 800;
+    }
+
+    .concept-card-compact[open] > summary::after { content: "−"; }
+
+    .concept-compact-number {
+      display: grid;
+      align-self: stretch;
+      place-items: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+      font: 800 18px/1 Arial, sans-serif;
+    }
+
+    .concept-compact-title {
+      padding: 14px 16px;
+    }
+
+    .concept-compact-title strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .concept-compact-title span {
+      display: block;
+      margin-top: 3px;
+      color: #d8d8d8;
+      font-size: 11px;
+    }
+
+    .concept-head {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: stretch;
+      min-height: 96px;
+      color: #fff;
+      background: #1a1a1a;
+    }
+
+    .concept-number {
+      display: grid;
+      place-items: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+      font: 800 21px/1 Arial, sans-serif;
+    }
+
+    .concept-head h2 {
+      align-self: center;
+      margin: 0;
+      padding: 20px 22px;
+      font-size: clamp(20px, 4vw, 28px);
+      line-height: 1.45;
+    }
+
+    .concept-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .concept-row {
+      padding: 17px 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .concept-row:nth-child(odd) { border-right: 1px solid var(--line); }
+    .concept-row strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-deep);
+      font-size: 12px;
+    }
+
+    .concept-row span {
+      display: block;
+      color: #555;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .survey-choice-group {
+      display: grid;
+      gap: 11px;
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      padding: 1px;
+    }
+
+    .survey-choice {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 13px;
+      align-items: center;
+      width: 100%;
+      min-height: 58px;
+      padding: 14px 16px;
+      border: 2px solid #d0d0d0;
+      border-radius: 15px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.55;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 120ms ease, background 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+    }
+
+    .survey-choice:hover {
+      border-color: #999;
+      background: #fafafa;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .survey-choice:focus-within, .button:focus-visible, .text-input:focus-visible {
+      outline: 3px solid rgba(220, 30, 55, 0.22);
+      outline-offset: 2px;
+    }
+
+    .survey-choice.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .choice-input {
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .choice-text { min-width: 0; }
+
+    .other-response {
+      margin-top: 14px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fafafa;
+    }
+
+    .other-response[hidden] { display: none; }
+
+    .other-response label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .other-text-input { min-height: 92px; }
+
+    .reused-other-text {
+      margin: 0;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .text-input {
+      width: 100%;
+      min-height: 132px;
+      resize: vertical;
+      padding: 16px;
+      border: 1px solid #d0d0d0;
+      border-radius: 15px;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.7;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .text-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(220, 30, 55, 0.10);
+    }
+
+    .counter {
+      margin: 8px 4px 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .selection-help {
+      display: inline-flex;
+      margin: 0 0 13px;
+      padding: 7px 10px;
+      border-radius: 9px;
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .direction-guide {
+      margin: 0 0 28px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fafafa;
+    }
+
+    .direction-guide h2 {
+      margin: 0 0 13px;
+      font-size: 15px;
+    }
+
+    .direction-guide ol {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .direction-guide li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .direction-guide .guide-number {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: #fff;
+      background: #1a1a1a;
+      font: 800 11px/1 Arial, sans-serif;
+    }
+
+    .direction-guide strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 13px;
+    }
+
+    .direction-guide p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .candidate-priority-note {
+      margin: 0 0 20px;
+      padding: 14px 16px;
+      border: 1px solid #d8d8d8;
+      border-radius: 14px;
+      color: #3f3f3f;
+      background: #f7f7f7;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .error {
+      min-height: 24px;
+      margin-top: 12px;
+      color: #c41e3a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 11px;
+      margin-top: 26px;
+    }
+
+    .button {
+      min-height: 48px;
+      padding: 13px 21px;
+      border: 0;
+      border-radius: 13px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 120ms ease, background 150ms ease, box-shadow 150ms ease;
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 4px 14px rgba(220, 30, 55, 0.25);
+    }
+    .button-primary:hover {
+      background: var(--accent-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(220, 30, 55, 0.32);
+    }
+    .button-primary:active { transform: translateY(0); }
+
+    .button-secondary {
+      color: #333;
+      background: #ebebeb;
+    }
+    .button-secondary:hover { background: #ddd; }
+
+    .button-wide { min-width: 190px; }
+    .button:disabled { cursor: not-allowed; opacity: 0.56; box-shadow: none; }
+
+    .review-page {
+      padding: clamp(26px, 5vw, 48px);
+    }
+
+    .review-header {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .review-header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(29px, 5vw, 44px);
+      line-height: 1.35;
+    }
+
+    .review-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .review-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .review-toggle {
+      min-height: 44px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .review-section + .review-section { margin-top: 12px; }
+
+    .review-section {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fafafa;
+    }
+
+    .review-section > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 17px;
+      color: var(--accent-deep);
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .review-section > summary::-webkit-details-marker { display: none; }
+    .review-section > summary::after { content: "＋"; color: var(--muted); }
+    .review-section[open] > summary::after { content: "−"; }
+
+    .review-list {
+      display: grid;
+      gap: 10px;
+      padding: 0 12px 12px;
+    }
+
+    .review-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 13px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fafafa;
+    }
+
+    .review-index {
+      color: var(--accent);
+      font: 800 12px/1.4 Arial, sans-serif;
+    }
+
+    .review-question {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .review-answer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+    }
+
+    .answer-chip {
+      display: inline-block;
+      padding: 6px 9px;
+      border-radius: 9px;
+      color: #1a4d2e;
+      background: var(--sage);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .answer-chip.empty {
+      color: var(--muted);
+      background: #ececec;
+      font-weight: 500;
+    }
+
+    .review-edit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      min-height: 44px;
+      margin-top: 3px;
+      padding: 8px 4px;
+      border: 0;
+      color: var(--accent-deep);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .review-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 11px;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-complete-note {
+      margin: 22px 0 0;
+      padding: 15px 17px;
+      border-radius: 14px;
+      color: #1a4d2e;
+      background: var(--sage);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .contact-reward-info {
+      margin: 18px 0 22px;
+      padding: 18px 18px 6px;
+      border-radius: 14px;
+      background: var(--sage);
+      color: #1a4d2e;
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .contact-reward-info p { margin: 0 0 12px; }
+    .contact-reward-info ul { margin: 0 0 12px; padding-left: 20px; }
+    .contact-reward-info li { margin-bottom: 6px; }
+
+    .contact-field { margin-bottom: 18px; }
+    .contact-field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .contact-optional {
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 4px;
+      font-size: 12.5px;
+    }
+    .contact-input {
+      min-height: 52px;
+      padding: 14px 16px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--line);
+      background: var(--surface);
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .contact-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(230,0,18,0.12);
+    }
+
+    @media (max-width: 720px) {
+      .page-shell { min-height: 100dvh; padding: 10px 8px 28px; }
+      .card { border-radius: 18px; }
+      .card-body, .review-page { padding: 22px 16px 24px; }
+      .hero { padding: 28px 20px; }
+      .hero h1 { font-size: 26px; line-height: 1.35; }
+      .hero-copy { font-size: 15px; line-height: 1.75; }
+      .brand-bar { margin-bottom: 18px; }
+      .brand-logo { width: 48px; height: 48px; }
+      .reward-banner { padding: 14px 16px; }
+      .reward-icon { width: 36px; height: 36px; font-size: 18px; }
+      .intro-content { padding: 22px 16px 24px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-card { min-height: auto; padding: 16px; }
+      .question-title { font-size: 21px; line-height: 1.45; }
+      .question-description { margin-bottom: 18px; font-size: 13px; }
+      .context-stimulus { margin-bottom: 20px; }
+      .stimulus-label { align-items: flex-start; }
+      .stimulus { max-height: none; border-radius: 14px; }
+      .concept-details { grid-template-columns: 1fr; }
+      .concept-row:nth-child(odd) { border-right: 0; }
+      .concept-head { grid-template-columns: 58px 1fr; }
+      .concept-head h2 { padding: 17px 16px; font-size: 19px; }
+      .concept-row { padding: 15px 16px; }
+      .survey-choice {
+        min-height: 56px;
+        padding: 13px 14px;
+        font-size: 15px;
+        gap: 11px;
+      }
+      .choice-input { width: 20px; height: 20px; }
+      .progress-wrap { margin-bottom: 10px; padding: 12px 14px 11px; border-radius: 14px; }
+      .actions {
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        margin: 22px -16px -24px;
+        padding: 12px 16px max(12px, env(safe-area-inset-bottom));
+        border-top: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+      }
+      .intro-card .intro-start {
+        position: static;
+        margin: 20px 0 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        backdrop-filter: none;
+      }
+      .intro-start .button { width: 100%; min-width: 0; }
+      .button { min-height: 50px; flex: 1; }
+      .button-wide { min-width: 0; }
+      .review-item { grid-template-columns: 34px 1fr; padding: 14px 12px; }
+      .review-list { padding: 0 8px 8px; }
+      .review-actions { position: static; margin: 26px 0 0; padding: 20px 0 0; background: transparent; backdrop-filter: none; }
+      .direction-guide { padding: 14px; }
+      .text-input { min-height: 110px; padding: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <div class="survey-frame">
+      <div id="progress" class="progress-wrap" hidden></div>
+      <section id="app" class="card" aria-live="polite"></section>
+    </div>
+  </main>
+  <script>
+    const spec = {
+      "version": "uniqlo-mobile-acceptance-20260904-r2",
+      "language": "ja-JP",
+      "mode": "survey",
+      "external_submission": false,
+      "questions": [
+        {
+          "id": "Q05",
+          "type": "single",
+          "title": "普段、メンズ服を選ぶとき、ご自身に最も近いものはどれですか。",
+          "options": [
+            "自分で選び、購入手続きも主に自分でする",
+            "自分で選ぶが、購入手続きは主に家族などがする",
+            "自分と家族などが一緒に選ぶ",
+            "家族などに選ぶことをほぼ任せている",
+            "自分用ではなく、主にほかの人のために選ぶ",
+            "メンズ服は選ばない",
+            "回答したくない"
+          ],
+          "required": true
+        },
+        {
+          "id": "Q06",
+          "type": "single",
+          "title": "過去6か月以内に、ご自身が着るメンズ服をオンラインで探した直近の1回について、最終的にどうしましたか。",
+          "options": [
+            "最初に見たオンラインショップで、最初に検討した商品を購入した",
+            "最初に見たオンラインショップで、別の商品に変えて購入した",
+            "別のオンラインショップで、最初に検討した商品を購入した",
+            "別のオンラインショップで、別の商品に変えて購入した",
+            "オンラインで探したあと、実店舗で購入した",
+            "具体的な商品を比較・検討したが、購入しなかった",
+            "商品を少し見ただけで、具体的な比較・検討はしなかった",
+            "過去6か月以内には、オンラインで探していない",
+            "自分が着るメンズ服は選ばない",
+            "覚えていない・回答したくない"
+          ],
+          "required": true,
+          "description": "最も近いものを1つ選んでください。どの回答を選んでも、最後まで続けられます。"
+        },
+        {
+          "id": "B01",
+          "type": "single",
+          "title": "上の6点の商品例を全体として見たとき、あなたの服の好みにどの程度合いますか。",
+          "options": [
+            "とても合う",
+            "やや合う",
+            "どちらともいえない",
+            "あまり合わない",
+            "まったく合わない",
+            "写真だけでは判断できない"
+          ],
+          "required": true,
+          "image": "common-product-board-mobile.webp",
+          "imageNote": "この6点は販売予定品ではなく、検討中の服装の幅を示す参考例です。"
+        },
+        {
+          "id": "B02",
+          "type": "multi",
+          "title": "このページに再表示している6点の参考画像を見て、これらの服を着るとしたら、どのような場面が思い浮かびますか。",
+          "options": [
+            "服装の自由度が比較的高い職場・通勤",
+            "仕事の後の食事・用事",
+            "休日の買い物・街歩き",
+            "友人と会う・デート",
+            "旅行",
+            "近所への外出",
+            "家で過ごすとき",
+            "着る場面は思いつかない",
+            "その他"
+          ],
+          "max": 3,
+          "required": true,
+          "image": "common-product-board-mobile.webp",
+          "imageNote": "同じ6点を、この質問の参考としてもう一度表示しています。",
+          "description": "当てはまるものを3つまで選んでください。",
+          "exclusiveValues": [
+            "着る場面は思いつかない"
+          ]
+        },
+        {
+          "id": "B03",
+          "type": "single",
+          "title": "メンズ服をオンラインで買うことについて、最も近いものを選んでください。",
+          "options": [
+            "オンラインで買う方が好き",
+            "どちらかといえば好き",
+            "どちらともいえない",
+            "どちらかといえば苦手",
+            "できればオンラインでは買いたくない"
+          ],
+          "required": true
+        },
+        {
+          "id": "B04",
+          "type": "multi",
+          "title": "オンラインで服を選ぶとき、気になることを最大3つまで選んでください。",
+          "options": [
+            "サイズが合うか",
+            "自分の体型でシルエットがどう見えるか",
+            "生地・質感・作りが分からない",
+            "写真と実物の色や見え方が違わないか",
+            "手持ちの服とどう合わせるか",
+            "商品説明をどこまで信用できるか",
+            "知らない店やブランドを信用できるか",
+            "価格に見合うか",
+            "参考になる購入者の評価が少ない",
+            "特に気になることはない",
+            "その他"
+          ],
+          "max": 3,
+          "required": true,
+          "exclusiveValues": [
+            "特に気になることはない"
+          ]
+        },
+        {
+          "id": "C01_Q1",
+          "type": "single",
+          "title": "この提案は、あなたにどのくらい合うと思いますか。",
+          "options": [
+            "とても合うと思う",
+            "やや合うと思う",
+            "どちらともいえない",
+            "あまり合わないと思う",
+            "まったく合わないと思う",
+            "内容だけでは判断できない"
+          ],
+          "required": true,
+          "conceptTitle": "大人のアメリカン・ヴィンテージ風スタイル"
+        },
+        {
+          "id": "C01_Q2",
+          "type": "single",
+          "title": "この提案を見たあと、最初にしてみたいことを1つ選んでください。",
+          "options": [
+            "まず、具体的な商品を見てみたい",
+            "まず、普段利用する店や商品と比べてみたい",
+            "まず、あとで見返せるように保存しておきたい",
+            "まず、無料で見られる情報だけ読んでみたい",
+            "今のところ、特に何もしないと思う",
+            "この説明だけでは判断できない"
+          ],
+          "required": true,
+          "description": "複数当てはまる場合も、最初にすると思うものをお選びください。",
+          "conceptTitle": "大人のアメリカン・ヴィンテージ風スタイル"
+        },
+        {
+          "id": "C01_Q3",
+          "type": "single",
+          "title": "前の質問でその回答を選んだ理由として、最も近いものはどれですか。",
+          "options": [
+            "アメリカン・ヴィンテージ風の雰囲気が好みに合う",
+            "目立ちすぎず、ほどよくデザイン性がある",
+            "すっきり自然に着られそう",
+            "若作りや派手さを避けやすそう",
+            "普段利用する店や商品で十分",
+            "この服装は自分に合わない",
+            "具体的な商品を見ないと判断できない",
+            "その他"
+          ],
+          "required": true,
+          "conceptTitle": "大人のアメリカン・ヴィンテージ風スタイル"
+        },
+        {
+          "id": "C02_Q1",
+          "type": "single",
+          "title": "この提案は、あなたにどのくらい合うと思いますか。",
+          "options": [
+            "とても合うと思う",
+            "やや合うと思う",
+            "どちらともいえない",
+            "あまり合わないと思う",
+            "まったく合わないと思う",
+            "内容だけでは判断できない"
+          ],
+          "required": true,
+          "conceptTitle": "仕事の日も、その後の予定にもなじむ服"
+        },
+        {
+          "id": "C02_Q2",
+          "type": "single",
+          "title": "この提案を見たあと、最初にしてみたいことを1つ選んでください。",
+          "options": [
+            "まず、具体的な商品を見てみたい",
+            "まず、普段利用する店や商品と比べてみたい",
+            "まず、あとで見返せるように保存しておきたい",
+            "まず、無料で見られる情報だけ読んでみたい",
+            "今のところ、特に何もしないと思う",
+            "この説明だけでは判断できない"
+          ],
+          "required": true,
+          "description": "複数当てはまる場合も、最初にすると思うものをお選びください。",
+          "conceptTitle": "仕事の日も、その後の予定にもなじむ服"
+        },
+        {
+          "id": "C02_Q3",
+          "type": "single",
+          "title": "前の質問でその回答を選んだ理由として、最も近いものはどれですか。",
+          "options": [
+            "仕事の日も、その後の予定にも着られそう",
+            "仕事の場でも清潔感がありそう",
+            "堅すぎず、普段にも使いやすそう",
+            "着替えや、別の服を考える手間が減りそう",
+            "仕事の後まで同じ服で過ごす必要はない",
+            "手持ちの服や普段利用する店で十分",
+            "具体的な商品を見ないと判断できない",
+            "その他"
+          ],
+          "required": true,
+          "conceptTitle": "仕事の日も、その後の予定にもなじむ服"
+        },
+        {
+          "id": "C03_Q1",
+          "type": "single",
+          "title": "この提案は、あなたにどのくらい合うと思いますか。",
+          "options": [
+            "とても合うと思う",
+            "やや合うと思う",
+            "どちらともいえない",
+            "あまり合わないと思う",
+            "まったく合わないと思う",
+            "内容だけでは判断できない"
+          ],
+          "required": true,
+          "conceptTitle": "春夏の大人向け街着"
+        },
+        {
+          "id": "C03_Q2",
+          "type": "single",
+          "title": "この提案を見たあと、最初にしてみたいことを1つ選んでください。",
+          "options": [
+            "まず、具体的な商品を見てみたい",
+            "まず、普段利用する店や商品と比べてみたい",
+            "まず、あとで見返せるように保存しておきたい",
+            "まず、無料で見られる情報だけ読んでみたい",
+            "今のところ、特に何もしないと思う",
+            "この説明だけでは判断できない"
+          ],
+          "required": true,
+          "description": "複数当てはまる場合も、最初にすると思うものをお選びください。",
+          "conceptTitle": "春夏の大人向け街着"
+        },
+        {
+          "id": "C03_Q3",
+          "type": "single",
+          "title": "前の質問でその回答を選んだ理由として、最も近いものはどれですか。",
+          "options": [
+            "春夏も大人らしく着られそう",
+            "トップスを選びやすそう",
+            "ロングパンツとショートパンツを場面に合わせて選びやすそう",
+            "屋外でも冷房の効いた室内でも着やすそう",
+            "春夏だけの提案は必要ない",
+            "普段利用する店や商品で十分",
+            "生地や機能が分からず、判断できない",
+            "その他"
+          ],
+          "required": true,
+          "conceptTitle": "春夏の大人向け街着"
+        },
+        {
+          "id": "C04_Q1",
+          "type": "single",
+          "title": "この提案は、あなたにどのくらい合うと思いますか。",
+          "options": [
+            "とても合うと思う",
+            "やや合うと思う",
+            "どちらともいえない",
+            "あまり合わないと思う",
+            "まったく合わないと思う",
+            "内容だけでは判断できない"
+          ],
+          "required": true,
+          "conceptTitle": "コーディネートの迷いを減らす提案"
+        },
+        {
+          "id": "C04_Q2",
+          "type": "single",
+          "title": "この提案を見たあと、最初にしてみたいことを1つ選んでください。",
+          "options": [
+            "まず、具体的な商品を見てみたい",
+            "まず、普段利用する店や商品と比べてみたい",
+            "まず、あとで見返せるように保存しておきたい",
+            "まず、無料で見られる情報だけ読んでみたい",
+            "今のところ、特に何もしないと思う",
+            "この説明だけでは判断できない"
+          ],
+          "required": true,
+          "description": "複数当てはまる場合も、最初にすると思うものをお選びください。",
+          "conceptTitle": "コーディネートの迷いを減らす提案"
+        },
+        {
+          "id": "C04_Q3",
+          "type": "single",
+          "title": "前の質問でその回答を選んだ理由として、最も近いものはどれですか。",
+          "options": [
+            "具体的な組み合わせがあると迷いが減る",
+            "手持ちの服に合う1着を選びやすい",
+            "必要な商品だけを単品で選べる",
+            "商品と着こなし例を一緒に見られる",
+            "着こなしは自分で考えたい",
+            "無料で見られる着こなし情報だけで十分",
+            "普段利用する店の提案で十分",
+            "具体的な組み合わせ例を見ないと判断できない",
+            "その他"
+          ],
+          "required": true,
+          "conceptTitle": "コーディネートの迷いを減らす提案"
+        },
+        {
+          "id": "C05_Q1",
+          "type": "single",
+          "title": "この提案は、あなたにどのくらい合うと思いますか。",
+          "options": [
+            "とても合うと思う",
+            "やや合うと思う",
+            "どちらともいえない",
+            "あまり合わないと思う",
+            "まったく合わないと思う",
+            "内容だけでは判断できない"
+          ],
+          "required": true,
+          "conceptTitle": "2〜4日の旅行を少ない服で着回す提案"
+        },
+        {
+          "id": "C05_Q2",
+          "type": "single",
+          "title": "この提案を見たあと、最初にしてみたいことを1つ選んでください。",
+          "options": [
+            "まず、具体的な商品を見てみたい",
+            "まず、普段利用する店や商品と比べてみたい",
+            "まず、あとで見返せるように保存しておきたい",
+            "まず、無料で見られる情報だけ読んでみたい",
+            "今のところ、特に何もしないと思う",
+            "この説明だけでは判断できない"
+          ],
+          "required": true,
+          "description": "複数当てはまる場合も、最初にすると思うものをお選びください。",
+          "conceptTitle": "2〜4日の旅行を少ない服で着回す提案"
+        },
+        {
+          "id": "C05_Q3",
+          "type": "single",
+          "title": "前の質問でその回答を選んだ理由として、最も近いものはどれですか。",
+          "options": [
+            "旅行の荷物を減らしやすい",
+            "手持ちの服を活かし、必要なアイテムだけを補う",
+            "少ない服で複数の予定に対応しやすい",
+            "荷造りで迷う時間が減りそう",
+            "2〜4日の旅行をする機会がない",
+            "無料で見られる持ち物リストや着回し情報で十分",
+            "手持ちの服や普段利用する店で十分",
+            "具体的な商品を見ないと判断できない",
+            "その他"
+          ],
+          "required": true,
+          "conceptTitle": "2〜4日の旅行を少ない服で着回す提案"
+        },
+        {
+          "id": "F01",
+          "type": "multi",
+          "title": "今後、優先して詳しく検討してほしい方向を2つまで選んでください。",
+          "options": [
+            "大人のアメリカン・ヴィンテージ風スタイル",
+            "仕事の日も、その後の予定にもなじむ服",
+            "春夏の大人向け街着",
+            "コーディネートの迷いを減らす提案",
+            "2〜4日の旅行を少ない服で着回す提案",
+            "今は優先してほしい方向はない"
+          ],
+          "max": 2,
+          "required": true,
+          "exclusiveValues": [
+            "今は優先してほしい方向はない"
+          ],
+          "description": "方向の種類は異なり、組み合わせて成り立つ場合があります。不要な方向を決めるのではなく、これから先に確かめてほしいものを選んでください。"
+        },
+        {
+          "id": "F03",
+          "type": "single",
+          "title": "5つの中で、今のあなたにとって優先度が最も低い方向を1つ選んでください。",
+          "options": [
+            "大人のアメリカン・ヴィンテージ風スタイル",
+            "仕事の日も、その後の予定にもなじむ服",
+            "春夏の大人向け街着",
+            "コーディネートの迷いを減らす提案",
+            "2〜4日の旅行を少ない服で着回す提案"
+          ],
+          "required": true,
+          "description": "「不要」という意味ではなく、現時点で最も後回しでよいものをお選びください。"
+        },
+        {
+          "id": "F04",
+          "type": "single",
+          "title": "普段利用する店や、よく見る商品と比べて、最も違いを感じた提案はどれですか。",
+          "options": [
+            "大人のアメリカン・ヴィンテージ風スタイル",
+            "仕事の日も、その後の予定にもなじむ服",
+            "春夏の大人向け街着",
+            "コーディネートの迷いを減らす提案",
+            "2〜4日の旅行を少ない服で着回す提案",
+            "特に違いを感じた提案はない",
+            "比較できない・分からない"
+          ],
+          "required": true
+        },
+        {
+          "id": "B06",
+          "type": "multi",
+          "title": "上の6点の参考画像を見て、もう少し詳しく見てみたいカテゴリーを選んでください。",
+          "options": [
+            "Tシャツ・ポロシャツ",
+            "シャツ",
+            "スウェット・ニット",
+            "ジャケット・アウター",
+            "ロングパンツ・ショートパンツ",
+            "特にない"
+          ],
+          "required": true,
+          "image": "common-product-board-mobile.webp",
+          "imageNote": "同じ6点を見ながら、気になるカテゴリーを選んでください。",
+          "max": 3,
+          "exclusiveValues": [
+            "特にない"
+          ],
+          "description": "3つまで選べます。「特にない」は、ほかのカテゴリーと同時に選べません。"
+        },
+        {
+          "id": "Q03",
+          "type": "single",
+          "title": "年齢層を教えてください。",
+          "options": [
+            "29歳以下",
+            "30〜39歳",
+            "40〜49歳",
+            "50〜59歳",
+            "60歳以上",
+            "回答したくない"
+          ],
+          "required": true
+        },
+        {
+          "id": "Q04",
+          "type": "single",
+          "title": "性別について、当てはまるものを選んでください。",
+          "options": [
+            "男性",
+            "女性",
+            "回答したくない"
+          ],
+          "required": true
+        },
+        {
+          "id": "F05",
+          "type": "text",
+          "title": "この5つ以外に、メンズ服選びで「あれば助かる」と思う商品や情報があれば教えてください。",
+          "description": "なければ入力しなくてもかまいません。ここでは服選びに関するご意見をお聞かせください。",
+          "required": false,
+          "maxLength": 80
+        }
+      ],
+      "priceQuestion": {
+        "type": "single",
+        "options": [
+          "3,000円未満",
+          "3,000〜4,999円",
+          "5,000〜7,999円",
+          "8,000〜11,999円",
+          "12,000〜19,999円",
+          "20,000円以上",
+          "分からない"
+        ],
+        "required": true
+      },
+      "concernPriorityQuestion": {
+        "type": "single",
+        "required": true,
+        "title": "先ほど選んだ中で、オンラインで服を選ぶときに最も大きな心配はどれですか。",
+        "description": "前の質問で選んだ項目だけを表示しています。"
+      },
+      "topChoiceQuestion": {
+        "type": "single",
+        "required": true,
+        "title": "選んだ方向のうち、最初に詳しく検討してほしいものはどれですか。",
+        "description": "先ほど選んだ2つから1つ選んでください。ほかの方向を不要とする回答ではありません。"
+      },
+      "concepts": [
+        {
+          "id": "C01",
+          "number": "01",
+          "title": "大人のアメリカン・ヴィンテージ風スタイル",
+          "audience": "派手なロゴを避けつつ、服に少し個性がほしい大人の男性",
+          "scene": "服装の自由度が比較的高い職場、退勤後、休日の外出",
+          "value": "アメリカン・ヴィンテージを土台に、すっきり自然に見える日常着を選びやすくする",
+          "boundary": "実際のヴィンテージ品、特定の素材・機能・品質を保証する案ではありません"
+        },
+        {
+          "id": "C02",
+          "number": "02",
+          "title": "仕事の日も、その後の予定にもなじむ服",
+          "audience": "仕事からその後の予定まで、同じ服で過ごしたい男性",
+          "scene": "スーツが必須ではない職場、仕事後の食事や外出",
+          "value": "清潔感と堅すぎない見え方を両立し、着替えや選び直しを減らす",
+          "boundary": "厳格なドレスコードの職場に対応するとは限りません"
+        },
+        {
+          "id": "C03",
+          "number": "03",
+          "title": "春夏の大人向け街着",
+          "audience": "暖かい季節も、ラフすぎず大人らしく着たい男性",
+          "scene": "通勤、街歩き、食事、屋内外の移動",
+          "value": "トップス、パンツ、軽い羽織りを場面に合わせて選びやすくする",
+          "boundary": "接触冷感、UVカット、防臭など、確認できていない機能はお約束しません"
+        },
+        {
+          "id": "C04",
+          "number": "04",
+          "title": "コーディネートの迷いを減らす提案",
+          "audience": "服は必要だが、組み合わせを考えるのが面倒な男性",
+          "scene": "出勤前、休日の外出前、服を買い足すとき",
+          "value": "手持ちの服と合わせやすい具体例を示し、迷いを1つ減らす",
+          "boundary": "セットでそろえることを前提とせず、必要なものを1着ずつ選ぶ提案です。"
+        },
+        {
+          "id": "C05",
+          "number": "05",
+          "title": "2〜4日の旅行を少ない服で着回す提案",
+          "audience": "短い旅行で、荷物も服選びも増やしたくない男性",
+          "scene": "観光、移動、食事など、予定が複数ある短い旅行",
+          "value": "手持ちの服を活かし、必要なアイテムだけを補って、着回しを組み立てやすくする",
+          "boundary": "旅行専用品や機能素材だけに絞る提案ではありません。"
+        }
+      ]
+    }
+    const app = document.getElementById("app");
+    const progress = document.getElementById("progress");
+    const STORAGE_KEY = "menswear-survey-draft:" + spec.version;
+    const DRAFT_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+    const NO_PRIORITY_OPTION = "今は優先してほしい方向はない";
+    const CANDIDATE_ROTATIONS = [
+      { id: "A", order: ["C01", "C02", "C03", "C04", "C05"] },
+      { id: "B", order: ["C02", "C03", "C04", "C05", "C01"] },
+      { id: "C", order: ["C03", "C04", "C05", "C01", "C02"] },
+      { id: "D", order: ["C04", "C05", "C01", "C02", "C03"] },
+      { id: "E", order: ["C05", "C01", "C02", "C03", "C04"] },
+    ];
+
+    function createResponseId() {
+      if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+      const bytes = new Uint8Array(16);
+      window.crypto?.getRandomValues?.(bytes);
+      return "local-" + [...bytes].map((value) => value.toString(16).padStart(2, "0")).join("") + "-" + Date.now();
+    }
+
+    function canUseLocalStorage() {
+      const probeKey = STORAGE_KEY + ":probe";
+      try {
+        localStorage.setItem(probeKey, "1");
+        localStorage.removeItem(probeKey);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    const initialStorageAvailable = canUseLocalStorage();
+
+    function loadDraft() {
+      if (!initialStorageAvailable) return null;
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        const draft = JSON.parse(raw);
+        const updatedAt = Date.parse(draft.updatedAt || "");
+        const validOrder = Array.isArray(draft.conceptOrder) && draft.conceptOrder.length === 5 &&
+          new Set(draft.conceptOrder).size === 5 && draft.conceptOrder.every((id) => /^C0[1-5]$/.test(id));
+        if (draft.surveyVersion !== spec.version || !Number.isFinite(updatedAt) || Date.now() - updatedAt > DRAFT_TTL_MS || !validOrder) {
+          localStorage.removeItem(STORAGE_KEY);
+          return null;
+        }
+        return draft;
+      } catch (_) {
+        try { localStorage.removeItem(STORAGE_KEY); } catch (_) { /* Storage is unavailable. */ }
+        return null;
+      }
+    }
+
+    const requestedVariant = new URLSearchParams(location.search).get("order")?.toUpperCase();
+    const requestedRotation = CANDIDATE_ROTATIONS.find((rotation) => rotation.id === requestedVariant);
+    const loadedDraft = loadDraft();
+    const compatibleDraft = loadedDraft && (!requestedRotation || loadedDraft.orderVariant === requestedRotation.id) ? loadedDraft : null;
+    const selectedRotation = requestedRotation ||
+      CANDIDATE_ROTATIONS.find((rotation) => rotation.id === compatibleDraft?.orderVariant) ||
+      CANDIDATE_ROTATIONS[Math.floor(Math.random() * CANDIDATE_ROTATIONS.length)];
+    const state = {
+      index: -1,
+      answers: compatibleDraft?.answers || {},
+      returnToReview: Boolean(compatibleDraft?.returnToReview),
+      reviewComplete: false,
+      currentQuestionId: compatibleDraft?.currentQuestionId || null,
+      orderVariant: selectedRotation.id,
+      conceptOrder: [...selectedRotation.order],
+      responseId: compatibleDraft?.responseId || createResponseId(),
+      startedAt: compatibleDraft?.startedAt || null,
+      hasSavedProgress: Boolean(compatibleDraft?.currentQuestionId || Object.keys(compatibleDraft?.answers || {}).length),
+      storageAvailable: initialStorageAvailable,
+      submissionAcknowledged: false,
+      contact: { email: compatibleDraft?.contact?.email || "", phone: compatibleDraft?.contact?.phone || "" },
+    };
+
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    })[char]);
+
+    const sectionFor = (id) => {
+      if (["Q05", "Q06"].includes(id)) return "あなたの服選び";
+      if (["Q03", "Q04"].includes(id)) return "最後に、あなたについて";
+      if (id.startsWith("B")) return "服の選び方";
+      if (id.startsWith("C")) return "5つの方向案";
+      return "最後の比較";
+    };
+
+    const questionKicker = (question) => {
+      const conceptMatch = question.id.match(/^(C[0-9]{2})_Q([1-3])$/);
+      if (!conceptMatch) return sectionFor(question.id);
+      const conceptIndex = state.conceptOrder.indexOf(conceptMatch[1]) + 1;
+      return "提案 " + conceptIndex + " / " + spec.concepts.length + " ・ 質問 " + conceptMatch[2] + " / 3";
+    };
+
+    const conceptFor = (id) => spec.concepts.find((concept) => id.startsWith(concept.id));
+
+    const categoryQuestion = spec.questions.find((question) => question.id === "B06");
+    const concernQuestion = spec.questions.find((question) => question.id === "B04");
+    const proposalQuestion = spec.questions.find((question) => question.id === "F01");
+    const lowestPriorityQuestion = spec.questions.find((question) => question.id === "F03");
+    const distinctQuestion = spec.questions.find((question) => question.id === "F04");
+    const baseQuestions = [...spec.questions];
+
+    function orderedConcepts() {
+      return state.conceptOrder.map((id) => spec.concepts.find((concept) => concept.id === id));
+    }
+
+    function displayNumberFor(conceptId) {
+      return String(state.conceptOrder.indexOf(conceptId) + 1).padStart(2, "0");
+    }
+
+    function syncComparisonOrder() {
+      const titles = orderedConcepts().map((concept) => concept.title);
+      proposalQuestion.options = [...titles, NO_PRIORITY_OPTION];
+      proposalQuestion.exclusiveValues = [NO_PRIORITY_OPTION];
+      lowestPriorityQuestion.options = [...titles];
+      distinctQuestion.options = [...titles, "特に違いを感じた提案はない", "比較できない・分からない"];
+    }
+
+    syncComparisonOrder();
+
+    function saveDraft(screenId) {
+      if (state.submissionAcknowledged || !state.storageAvailable) return false;
+      const effectiveScreen = screenId || app.dataset.screen || state.currentQuestionId;
+      if (effectiveScreen && effectiveScreen !== "intro") state.currentQuestionId = effectiveScreen;
+      const draft = {
+        surveyVersion: spec.version,
+        responseId: state.responseId,
+        answers: state.answers,
+        currentQuestionId: state.currentQuestionId,
+        returnToReview: state.returnToReview,
+        orderVariant: state.orderVariant,
+        conceptOrder: state.conceptOrder,
+        startedAt: state.startedAt,
+        updatedAt: new Date().toISOString(),
+        contact: state.contact,
+      };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
+        state.storageAvailable = true;
+        state.hasSavedProgress = Boolean(state.currentQuestionId || Object.keys(state.answers).length);
+        return true;
+      } catch (_) {
+        state.storageAvailable = false;
+        return false;
+      }
+    }
+
+    function clearDraft() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (_) { /* Continue without storage. */ }
+    }
+
+    function restartSurvey() {
+      clearDraft();
+      state.index = -1;
+      state.answers = {};
+      state.returnToReview = false;
+      state.reviewComplete = false;
+      state.currentQuestionId = null;
+      state.responseId = createResponseId();
+      state.startedAt = null;
+      state.hasSavedProgress = false;
+      state.submissionAcknowledged = false;
+      renderIntro();
+    }
+
+    function confirmRestartSurvey() {
+      if (!window.confirm("保存中の回答をすべて削除して、最初から回答しますか？")) return;
+      restartSurvey();
+    }
+
+    function resumeSurvey() {
+      state.startedAt ||= new Date().toISOString();
+      if (state.currentQuestionId === "review") {
+        renderReview();
+        return;
+      }
+      if (state.currentQuestionId === "contact") {
+        renderContact();
+        return;
+      }
+      const flow = getFlow();
+      const restoredIndex = flow.findIndex((question) => question.id === state.currentQuestionId);
+      state.index = restoredIndex >= 0 ? restoredIndex : 0;
+      renderQuestion();
+    }
+
+    function priceIdFor(category) {
+      const categoryIndex = categoryQuestion.options.indexOf(category) + 1;
+      return "B07_" + String(categoryIndex).padStart(2, "0");
+    }
+
+    function selectedCategories() {
+      const selected = state.answers.B06;
+      if (!Array.isArray(selected)) return [];
+      return categoryQuestion.options.filter((category) => selected.includes(category) && category !== "特にない");
+    }
+
+    function selectedConcerns() {
+      const selected = state.answers.B04;
+      if (!Array.isArray(selected)) return [];
+      return concernQuestion.options.filter((concern) => selected.includes(concern) && concern !== "特に気になることはない");
+    }
+
+    function selectedProposals() {
+      const selected = state.answers.F01;
+      if (!Array.isArray(selected)) return [];
+      return proposalQuestion.options.filter((proposal) => selected.includes(proposal) && proposal !== NO_PRIORITY_OPTION);
+    }
+
+    function buildPriceQuestion(category) {
+      return {
+        ...spec.priceQuestion,
+        id: priceIdFor(category),
+        category,
+        title: "「" + category + "」の中で最も見てみたい商品を1点買うとしたら、税込で無理なく検討できる価格帯はどれですか。",
+        description: "前の質問で選んだカテゴリーです。選んだカテゴリーごとに、1問ずつ価格帯をお聞きします。",
+      };
+    }
+
+    function buildConcernPriorityQuestion() {
+      return {
+        ...spec.concernPriorityQuestion,
+        id: "B05",
+        options: selectedConcerns(),
+      };
+    }
+
+    function buildTopChoiceQuestion() {
+      return {
+        ...spec.topChoiceQuestion,
+        id: "F02",
+        options: selectedProposals(),
+      };
+    }
+
+    function getFlow() {
+      const flow = [];
+      let candidateQuestionsInserted = false;
+      baseQuestions.forEach((question) => {
+        if (/^C[0-9]{2}_Q[1-3]$/.test(question.id)) {
+          if (!candidateQuestionsInserted) {
+            state.conceptOrder.forEach((conceptId) => {
+              baseQuestions
+                .filter((candidateQuestion) => candidateQuestion.id.startsWith(conceptId + "_Q"))
+                .forEach((candidateQuestion) => flow.push(candidateQuestion));
+            });
+            candidateQuestionsInserted = true;
+          }
+          return;
+        }
+        flow.push(question);
+        if (question.id === "B04" && selectedConcerns().length >= 2) {
+          flow.push(buildConcernPriorityQuestion());
+        }
+        if (question.id === "B06") {
+          selectedCategories().forEach((category) => flow.push(buildPriceQuestion(category)));
+        }
+        if (question.id === "F01" && selectedProposals().length >= 2) {
+          flow.push(buildTopChoiceQuestion());
+        }
+      });
+      return flow;
+    }
+
+    function renderDirectionGuide() {
+      const items = orderedConcepts().map((concept) =>
+        '<li><span class="guide-number">' + escapeHtml(displayNumberFor(concept.id)) + '</span><div><strong>' +
+        escapeHtml(concept.title) + '</strong><p>' + escapeHtml(concept.value) + '</p></div></li>'
+      ).join("");
+      return '<aside class="direction-guide"><h2>役割の異なる5つの方向を確認してください</h2><ol>' + items + '</ol></aside>';
+    }
+
+    function renderIntro() {
+      progress.hidden = true;
+      app.className = "card intro-card";
+      app.dataset.screen = "intro";
+      app.innerHTML = `
+        <div class="hero">
+          <div class="brand-bar">
+            <span class="brand-logo" aria-label="UNIQLO">
+              <img src="uniqlo-logo.png" alt="UNIQLO" width="56" height="56" loading="eager">
+            </span>
+            <span class="brand-name">UNIQLO</span>
+          </div>
+          <p class="eyebrow">メンズ服に関するアンケート</p>
+          <h1>これからのメンズ服選びについて、あなたの声をお聞かせください</h1>
+          <p class="hero-copy">毎日の服選びについて、あなたの率直なご意見をお聞かせください。正解・不正解はありません。今のご自身の感覚に最も近いものをお選びください。</p>
+          <div class="hero-meta">
+            <span class="meta-pill">約30問</span>
+            <span class="meta-pill">1問ずつ表示</span>
+            <span class="meta-pill">${state.storageAvailable ? "途中から再開できます" : "途中保存は利用できません"}</span>
+          </div>
+          <div class="actions intro-start">
+            <button class="button button-primary button-wide" data-start>${state.hasSavedProgress ? "続きから再開する" : "アンケートを始める"}</button>
+          </div>
+          <p class="intro-start-note">${state.storageAvailable ? "参加は任意です。入力途中の回答は、この端末に一時保存されます。アンケート完了後のプレゼント送付のため、メールアドレスまたは電話番号をご登録いただきます。" : "参加は任意です。この端末では途中保存を利用できないため、ページを閉じると回答が失われます。アンケート完了後のプレゼント送付のため、メールアドレスまたは電話番号をご登録いただきます。"}</p>
+          ${state.hasSavedProgress ? '<div class="resume-panel">前回の続きがこの端末に保存されています。<button class="button-link" type="button" data-restart>最初から回答する</button></div>' : ''}
+          <div class="reward-banner">
+            <span class="reward-icon">&#127873;</span>
+            <div class="reward-text">
+              <strong>アンケート完了で、秋の新作アイテムをプレゼント</strong>
+              <p>アンケートにご協力いただいた方には、UNIQLOの秋の新作アイテムをお届けします。ぜひご意見をお聞かせください。</p>
+            </div>
+          </div>
+        </div>
+        <div class="intro-content">
+          <p class="purpose">この調査は、発売する商品を決める前に、どのようなメンズ服や選び方の提案が求められているかを確認するものです。服の好み、着る場面、オンラインで迷うこと、そして5つの提案について、1問ずつお聞きします。</p>
+          <div class="trust-grid">
+            <article class="trust-card">
+              <span class="trust-number">01</span>
+              <h2>連絡先はプレゼント送付のみに使用します</h2>
+              <p>アンケート完了後のプレゼント送付のため、メールアドレスまたは電話番号をお尋ねします。マーケティングや営業目的には使用せず、第三者には提供しません。</p>
+            </article>
+            <article class="trust-card">
+              <span class="trust-number">02</span>
+              <h2>個別の販売や営業には使いません</h2>
+              <p>商品の販売、注文、会員登録はありません。回答は集計し、今後の商品や情報の方向を検討するために使います。</p>
+            </article>
+            <article class="trust-card">
+              <span class="trust-number">03</span>
+              <h2>送信前に回答を確認できます</h2>
+              <p>${state.storageAvailable ? "入力途中の回答はこの端末に最長7日間一時保存され、最後の画面で内容を確認できます。" : "この端末では途中保存を利用できませんが、最後の画面で内容を確認できます。"}</p>
+            </article>
+          </div>
+          <p class="privacy-note">どの回答を選んでも、アンケートは最後まで続けられます。回答をやめたい場合は、そのままページを閉じてください。</p>
+        </div>`;
+      app.querySelector("[data-start]").addEventListener("click", () => {
+        if (state.hasSavedProgress) {
+          resumeSurvey();
+          return;
+        }
+        state.startedAt = new Date().toISOString();
+        state.index = 0;
+        state.currentQuestionId = getFlow()[0]?.id || null;
+        saveDraft(state.currentQuestionId);
+        renderQuestion();
+      });
+      app.querySelector("[data-restart]")?.addEventListener("click", confirmRestartSurvey);
+    }
+
+    function renderProgress(question) {
+      progress.hidden = false;
+      const flow = getFlow();
+      const current = state.index + 1;
+      const percent = Math.round((current / flow.length) * 100);
+      progress.innerHTML = `
+        <div class="progress-meta">
+          <span>${escapeHtml(questionKicker(question))}</span>
+          <span>${current} / ${flow.length}</span>
+        </div>
+        <div class="progress-track" aria-label="進行状況 ${percent}%">
+          <span class="progress-bar" style="width:${percent}%"></span>
+        </div>`;
+    }
+
+    function renderConceptDetails(concept) {
+      return `<div class="concept-details">
+        <div class="concept-row"><strong>想定する人</strong><span>${escapeHtml(concept.audience)}</span></div>
+        <div class="concept-row"><strong>着る場面</strong><span>${escapeHtml(concept.scene)}</span></div>
+        <div class="concept-row"><strong>この方向が目指すこと</strong><span>${escapeHtml(concept.value)}</span></div>
+        <div class="concept-row"><strong>この提案の前提・注意点</strong><span>${escapeHtml(concept.boundary)}</span></div>
+      </div>`;
+    }
+
+    function renderConcept(concept, question) {
+      if (!concept) return "";
+      const displayNumber = displayNumberFor(concept.id);
+      if (!question.id.endsWith("_Q1")) {
+        return `<details class="concept-card concept-card-compact">
+          <summary>
+            <span class="concept-compact-number">${escapeHtml(displayNumber)}</span>
+            <span class="concept-compact-title"><strong>${escapeHtml(concept.title)}</strong><span>提案内容を確認する</span></span>
+          </summary>
+          ${renderConceptDetails(concept)}
+        </details>`;
+      }
+      return `
+        <section class="concept-card" aria-label="表示順 ${escapeHtml(displayNumber)} の方向案">
+          <div class="concept-head">
+            <span class="concept-number">${escapeHtml(displayNumber)}</span>
+            <h2>${escapeHtml(concept.title)}</h2>
+          </div>
+          ${renderConceptDetails(concept)}
+        </section>`;
+    }
+
+    function otherAnswerId(question) {
+      return question.id === "B05" ? "B04_OTHER_TEXT" : question.id + "_OTHER_TEXT";
+    }
+
+    function hasOtherOption(question) {
+      return Array.isArray(question.options) && question.options.includes("その他");
+    }
+
+    function isOtherSelected(question) {
+      const answer = state.answers[question.id];
+      return Array.isArray(answer) ? answer.includes("その他") : answer === "その他";
+    }
+
+    function renderOtherResponse(question) {
+      if (!hasOtherOption(question)) return "";
+      const answerId = otherAnswerId(question);
+      const value = state.answers[answerId] || "";
+      if (question.id === "B05") {
+        return `<div class="other-response" data-other-response${isOtherSelected(question) ? "" : " hidden"}>
+          <p class="reused-other-text">前の質問で入力した内容を使います：「${escapeHtml(value)}」</p>
+        </div>`;
+      }
+      return `<div class="other-response" data-other-response${isOtherSelected(question) ? "" : " hidden"}>
+        <label for="${escapeHtml(answerId)}">「その他」の内容を教えてください。</label>
+        <textarea id="${escapeHtml(answerId)}" class="text-input other-text-input" maxlength="80" placeholder="80文字以内で入力してください">${escapeHtml(value)}</textarea>
+        <p class="counter"><span data-other-count>${String(value).length}</span> / 80</p>
+      </div>`;
+    }
+
+    function syncOtherResponse(question) {
+      const container = app.querySelector("[data-other-response]");
+      if (!container) return;
+      const selected = isOtherSelected(question);
+      container.hidden = !selected;
+      if (!selected && question.id !== "B05") delete state.answers[otherAnswerId(question)];
+    }
+
+    function renderQuestion() {
+      const flow = getFlow();
+      const question = flow[state.index];
+      if (!question) {
+        renderReview();
+        return;
+      }
+      const current = state.answers[question.id];
+      const concept = conceptFor(question.id);
+      renderProgress(question);
+      app.className = "card";
+      app.dataset.screen = question.id;
+      state.currentQuestionId = question.id;
+
+      let content = `<div class="card-body">
+        <p class="section-kicker">${escapeHtml(questionKicker(question))}</p>`;
+      if (question.id === state.conceptOrder[0] + "_Q1") {
+        content += `<p class="candidate-priority-note">ここからは、スタイル、着る場面、季節、服選びのサポートなど、役割の異なる5つの方向をそれぞれ評価します。最後の比較は、どれか1つだけを残すためではなく、今後どの方向から優先して詳しく検討するかを確認するものです。</p>`;
+      }
+      if (question.image) {
+        const imageLabel = question.id === "B01" ? "今回の質問で共通して見る商品例" : "この質問の対象となる6点（再表示）";
+        content += `<figure class="context-stimulus">
+          <figcaption class="stimulus-label"><strong>${escapeHtml(imageLabel)}</strong><span>6点の参考画像</span></figcaption>
+          <img class="stimulus" src="${escapeHtml(question.image)}" alt="検討中のメンズ服6点の参考画像" width="720" height="496" decoding="async" loading="${question.id === "B01" ? "eager" : "lazy"}">
+          ${question.imageNote ? '<p class="stimulus-note">' + escapeHtml(question.imageNote) + '</p>' : ''}
+        </figure>`;
+      }
+      content += renderConcept(concept, question);
+      if (question.id === "F01") content += renderDirectionGuide();
+      content += `<h1 id="question-title" class="question-title" tabindex="-1">${escapeHtml(question.title)}</h1>`;
+      if (question.description) {
+        content += `<p class="question-description">${escapeHtml(question.description)}</p>`;
+      }
+
+      if (question.type === "text") {
+        content += `<textarea class="text-input" aria-labelledby="question-title" maxlength="${question.maxLength || 120}" placeholder="任意で入力してください">${escapeHtml(current || "")}</textarea>
+          <p class="counter"><span data-count>${String(current || "").length}</span> / ${question.maxLength || 120}</p>`;
+      } else {
+        if (question.type === "multi") {
+          const selectedCount = Array.isArray(current) ? current.length : 0;
+          content += `<p class="selection-help">複数選択できます（最大${question.max}つまで）・選択中：<span data-selection-count>${selectedCount}</span> / ${question.max}</p>`;
+        }
+        content += `<fieldset class="survey-choice-group ${question.type === "multi" ? "multi" : "single"}" aria-labelledby="question-title">`;
+        content += question.options.map((option) => {
+          const selected = question.type === "multi"
+            ? Array.isArray(current) && current.includes(option)
+            : current === option;
+          const inputType = question.type === "multi" ? "checkbox" : "radio";
+          return `<label class="survey-choice${selected ? " selected" : ""}">
+            <input class="choice-input" type="${inputType}" name="${escapeHtml(question.id)}" data-value="${escapeHtml(option)}"${selected ? " checked" : ""}>
+            <span class="choice-text">${escapeHtml(option)}</span>
+          </label>`;
+        }).join("");
+        content += `</fieldset>`;
+        content += renderOtherResponse(question);
+      }
+
+      content += `<div class="error" role="alert"></div>
+        <div class="actions">
+          <button class="button button-secondary" type="button" data-back>戻る</button>
+          <button class="button button-primary" type="button" data-next>次へ</button>
+        </div>
+      </div>`;
+      app.innerHTML = content;
+
+      app.querySelector("[data-back]").addEventListener("click", () => {
+        state.returnToReview = false;
+        if (state.index === 0) {
+          state.index = -1;
+          saveDraft(question.id);
+          renderIntro();
+        } else {
+          state.index -= 1;
+          state.currentQuestionId = getFlow()[state.index]?.id || null;
+          saveDraft(state.currentQuestionId);
+          renderQuestion();
+        }
+      });
+
+      if (question.type === "text") {
+        const input = app.querySelector(".text-input");
+        input.addEventListener("input", () => {
+          state.answers[question.id] = input.value;
+          app.querySelector("[data-count]").textContent = input.value.length;
+          saveDraft(question.id);
+        });
+      } else {
+        app.querySelectorAll(".choice-input").forEach((input) => {
+          input.addEventListener("change", () => selectOption(question, input.dataset.value));
+        });
+        const otherInput = app.querySelector(".other-text-input");
+        otherInput?.addEventListener("input", () => {
+          state.answers[otherAnswerId(question)] = otherInput.value;
+          app.querySelector("[data-other-count]").textContent = otherInput.value.length;
+          saveDraft(question.id);
+        });
+      }
+
+      const nextButton = app.querySelector("[data-next]");
+      if (nextButton) nextButton.addEventListener("click", () => advance(question));
+      saveDraft(question.id);
+      window.scrollTo({ top: 0, behavior: "auto" });
+      requestAnimationFrame(() => document.getElementById("question-title")?.focus({ preventScroll: true }));
+    }
+
+    function selectOption(question, value) {
+      if (question.type === "single") {
+        state.answers[question.id] = value;
+        app.querySelectorAll(".choice-input").forEach((input) => {
+          const selected = input.dataset.value === value;
+          input.checked = selected;
+          input.closest(".survey-choice").classList.toggle("selected", selected);
+        });
+        syncOtherResponse(question);
+        saveDraft(question.id);
+        return;
+      }
+
+      const selected = new Set(state.answers[question.id] || []);
+      const exclusiveValues = new Set(question.exclusiveValues || []);
+      const syncChoiceInputs = () => {
+        app.querySelectorAll(".choice-input").forEach((input) => {
+          const isSelected = selected.has(input.dataset.value);
+          input.checked = isSelected;
+          input.closest(".survey-choice").classList.toggle("selected", isSelected);
+        });
+      };
+      if (selected.has(value)) {
+        selected.delete(value);
+      } else if (exclusiveValues.has(value)) {
+        selected.clear();
+        selected.add(value);
+      } else {
+        exclusiveValues.forEach((exclusiveValue) => selected.delete(exclusiveValue));
+        if (selected.size < question.max) {
+          selected.add(value);
+        } else {
+          app.querySelector(".error").textContent = `選べるのは${question.max}つまでです。`;
+          syncChoiceInputs();
+          return;
+        }
+      }
+      state.answers[question.id] = [...selected];
+      if (question.id === "B04") {
+        delete state.answers.B05;
+        delete state.answers.B05_OTHER_TEXT;
+        const concerns = concernQuestion.options.filter((concern) => selected.has(concern) && concern !== "特に気になることはない");
+        if (concerns.length === 1) state.answers.B05 = concerns[0];
+      }
+      if (question.id === "B06") {
+        const activePriceIds = new Set([...selected].filter((category) => category !== "特にない").map(priceIdFor));
+        Object.keys(state.answers)
+          .filter((id) => id.startsWith("B07_") && !activePriceIds.has(id))
+          .forEach((id) => delete state.answers[id]);
+      }
+      if (question.id === "F01") {
+        delete state.answers.F02;
+        const proposals = proposalQuestion.options.filter((proposal) => selected.has(proposal) && proposal !== NO_PRIORITY_OPTION);
+        if (proposals.length === 1) state.answers.F02 = proposals[0];
+      }
+      app.querySelector(".error").textContent = "";
+      const count = app.querySelector("[data-selection-count]");
+      if (count) count.textContent = selected.size;
+      syncChoiceInputs();
+      syncOtherResponse(question);
+      saveDraft(question.id);
+    }
+
+    function advance(question) {
+      const answer = state.answers[question.id];
+      const isEmpty = answer === undefined || answer === "" || (Array.isArray(answer) && answer.length === 0);
+      if (question.required && isEmpty) {
+        app.querySelector(".error").textContent = "回答を選んでください。";
+        return;
+      }
+      if (isOtherSelected(question) && !String(state.answers[otherAnswerId(question)] || "").trim()) {
+        app.querySelector(".error").textContent = "「その他」の内容を入力してください。";
+        app.querySelector(".other-text-input")?.focus();
+        return;
+      }
+      if (state.returnToReview) {
+        state.returnToReview = false;
+        saveDraft("review");
+        renderReview();
+        return;
+      }
+      const flow = getFlow();
+      if (state.index === flow.length - 1) {
+        saveDraft("contact");
+        renderContact();
+        return;
+      }
+      state.index += 1;
+      state.currentQuestionId = getFlow()[state.index]?.id || null;
+      saveDraft(state.currentQuestionId);
+      renderQuestion();
+    }
+
+    function answerMarkup(question) {
+      const answer = state.answers[question.id];
+      const otherText = hasOtherOption(question) ? String(state.answers[otherAnswerId(question)] || "").trim() : "";
+      const otherMarkup = otherText ? '<span class="answer-chip">その他：' + escapeHtml(otherText) + '</span>' : "";
+      if (Array.isArray(answer) && answer.length) {
+        const regularAnswers = otherText ? answer.filter((value) => value !== "その他") : answer;
+        return regularAnswers.map((value) => '<span class="answer-chip">' + escapeHtml(value) + '</span>').join("") + otherMarkup;
+      }
+      if (typeof answer === "string" && answer.trim()) {
+        if (answer === "その他" && otherText) return otherMarkup;
+        return '<span class="answer-chip">' + escapeHtml(answer.trim()) + '</span>' + otherMarkup;
+      }
+      const emptyLabel = question.type === "text" ? "入力なし" : (question.required ? "未回答（回答が必要）" : "未回答（任意）");
+      return '<span class="answer-chip empty">' + emptyLabel + '</span>';
+    }
+
+    const ANALYSIS_RULES = {
+      version: "stage03-v3-priority-r3",
+      positiveFit: ["とても合うと思う", "やや合うと思う"],
+      activeComparisonActions: ["まず、具体的な商品を見てみたい", "まず、普段利用する店や商品と比べてみたい"],
+      saveAction: "まず、あとで見返せるように保存しておきたい",
+      contentOnlyAction: "まず、無料で見られる情報だけ読んでみたい",
+      noAction: "今のところ、特に何もしないと思う",
+      actionInformationGap: "この説明だけでは判断できない",
+      coreReasons: {
+        C01: ["アメリカン・ヴィンテージ風の雰囲気が好みに合う", "目立ちすぎず、ほどよくデザイン性がある", "すっきり自然に着られそう", "若作りや派手さを避けやすそう"],
+        C02: ["仕事の日も、その後の予定にも着られそう", "仕事の場でも清潔感がありそう", "堅すぎず、普段にも使いやすそう", "着替えや、別の服を考える手間が減りそう"],
+        C03: ["春夏も大人らしく着られそう", "トップスを選びやすそう", "ロングパンツとショートパンツを場面に合わせて選びやすそう", "屋外でも冷房の効いた室内でも着やすそう"],
+        C04: ["具体的な組み合わせがあると迷いが減る", "手持ちの服に合う1着を選びやすい", "必要な商品だけを単品で選べる", "商品と着こなし例を一緒に見られる"],
+        C05: ["旅行の荷物を減らしやすい", "手持ちの服を活かし、必要なアイテムだけを補う", "少ない服で複数の予定に対応しやすい", "荷造りで迷う時間が減りそう"],
+      },
+      alternativeSufficientReasons: {
+        C01: ["普段利用する店や商品で十分"],
+        C02: ["手持ちの服や普段利用する店で十分"],
+        C03: ["普段利用する店や商品で十分"],
+        C04: ["着こなしは自分で考えたい", "無料で見られる着こなし情報だけで十分", "普段利用する店の提案で十分"],
+        C05: ["無料で見られる持ち物リストや着回し情報で十分", "手持ちの服や普段利用する店で十分"],
+      },
+      noTaskReasons: {
+        C01: [],
+        C02: ["仕事の後まで同じ服で過ごす必要はない"],
+        C03: ["春夏だけの提案は必要ない"],
+        C04: [],
+        C05: ["2〜4日の旅行をする機会がない"],
+      },
+      fitRejectionReasons: {
+        C01: ["この服装は自分に合わない"],
+        C02: [],
+        C03: [],
+        C04: [],
+        C05: [],
+      },
+      informationGapReasons: {
+        C01: ["具体的な商品を見ないと判断できない"],
+        C02: ["具体的な商品を見ないと判断できない"],
+        C03: ["生地や機能が分からず、判断できない"],
+        C04: ["具体的な組み合わせ例を見ないと判断できない"],
+        C05: ["具体的な商品を見ないと判断できない"],
+      },
+      contentOnlyReasons: {
+        C04: ["無料で見られる着こなし情報だけで十分"],
+        C05: ["無料で見られる持ち物リストや着回し情報で十分"],
+      },
+    };
+
+    function conceptIdFromTitle(title) {
+      return spec.concepts.find((concept) => concept.title === title)?.id || null;
+    }
+
+    function buildDerivedMetrics() {
+      const candidateMetrics = {};
+      spec.concepts.forEach((concept) => {
+        const fit = state.answers[concept.id + "_Q1"] || null;
+        const action = state.answers[concept.id + "_Q2"] || null;
+        const reason = state.answers[concept.id + "_Q3"] || null;
+        const isContentCandidate = ["C04", "C05"].includes(concept.id);
+        const alternativeSufficient = ANALYSIS_RULES.alternativeSufficientReasons[concept.id].includes(reason);
+        const noTask = ANALYSIS_RULES.noTaskReasons[concept.id].includes(reason);
+        const fitRejection = ANALYSIS_RULES.fitRejectionReasons[concept.id].includes(reason);
+        candidateMetrics[concept.id] = {
+          fit_positive: ANALYSIS_RULES.positiveFit.includes(fit),
+          active_comparison_intent: ANALYSIS_RULES.activeComparisonActions.includes(action),
+          save_action: action === ANALYSIS_RULES.saveAction,
+          content_only_action: action === ANALYSIS_RULES.contentOnlyAction,
+          no_action: action === ANALYSIS_RULES.noAction,
+          action_information_gap: action === ANALYSIS_RULES.actionInformationGap,
+          core_reason_hit: ANALYSIS_RULES.coreReasons[concept.id].includes(reason),
+          alternative_sufficient: alternativeSufficient,
+          no_task_or_scene: noTask,
+          fit_rejection: fitRejection,
+          reason_information_gap: ANALYSIS_RULES.informationGapReasons[concept.id].includes(reason),
+          content_only: isContentCandidate && (action === ANALYSIS_RULES.contentOnlyAction || ANALYSIS_RULES.contentOnlyReasons[concept.id].includes(reason)),
+          structural_rejection_signal: alternativeSufficient || noTask || fitRejection,
+          reason_other_needs_review: reason === "その他",
+        };
+      });
+      const top2 = Array.isArray(state.answers.F01) ? state.answers.F01.filter((value) => value !== NO_PRIORITY_OPTION) : [];
+      const onlinePurchaseCompletedOptions = [
+        "最初に見たオンラインショップで、最初に検討した商品を購入した",
+        "最初に見たオンラインショップで、別の商品に変えて購入した",
+        "別のオンラインショップで、最初に検討した商品を購入した",
+        "別のオンラインショップで、別の商品に変えて購入した",
+      ];
+      const purchaseCompletedAfterOnlineSearchOptions = [
+        ...onlinePurchaseCompletedOptions,
+        "オンラインで探したあと、実店舗で購入した",
+      ];
+      const choiceFrictionOptions = [
+        "最初に見たオンラインショップで、別の商品に変えて購入した",
+        "別のオンラインショップで、最初に検討した商品を購入した",
+        "別のオンラインショップで、別の商品に変えて購入した",
+        "オンラインで探したあと、実店舗で購入した",
+        "具体的な商品を比較・検討したが、購入しなかった",
+      ];
+      const recentDecisionEventOptions = [
+        ...purchaseCompletedAfterOnlineSearchOptions,
+        "具体的な商品を比較・検討したが、購入しなかった",
+      ];
+      return {
+        analysis_version: ANALYSIS_RULES.version,
+        interpretation: "priority_between_combinable_proposals_not_single_brand_winner",
+        candidate_metrics: candidateMetrics,
+        priority_top2: top2.map(conceptIdFromTitle).filter(Boolean),
+        first_priority: conceptIdFromTitle(state.answers.F02),
+        lowest_priority: conceptIdFromTitle(state.answers.F03),
+        most_distinct: conceptIdFromTitle(state.answers.F04),
+        sample_signals: {
+          self_reported_japan_resident: false,
+          residency_evidence_status: "self_reported_unverified",
+          age_30_59: ["30〜39歳", "40〜49歳", "50〜59歳"].includes(state.answers.Q03),
+          male: state.answers.Q04 === "男性",
+          mainly_self_selects: ["自分で選び、購入手続きも主に自分でする", "自分で選ぶが、購入手続きは主に家族などがする"].includes(state.answers.Q05),
+          recent_decision_event: recentDecisionEventOptions.includes(state.answers.Q06),
+          online_purchase_completed: onlinePurchaseCompletedOptions.includes(state.answers.Q06),
+          purchase_completed_after_online_search: purchaseCompletedAfterOnlineSearchOptions.includes(state.answers.Q06),
+          choice_friction_or_switch: choiceFrictionOptions.includes(state.answers.Q06),
+        },
+      };
+    }
+
+    function buildSubmissionPayload() {
+      const startedAt = state.startedAt || new Date().toISOString();
+      const submittedAt = new Date().toISOString();
+      return {
+        response_id: state.responseId,
+        survey_version: spec.version,
+        order_variant: state.orderVariant,
+        candidate_order: state.conceptOrder,
+        recruitment_source: "instagram_dm",
+        started_at: startedAt,
+        submitted_at_client: submittedAt,
+        duration_seconds_client: Math.max(0, Math.round((Date.parse(submittedAt) - Date.parse(startedAt)) / 1000)),
+        answers: { ...state.answers },
+        contact: { ...state.contact },
+        derived: buildDerivedMetrics(),
+      };
+    }
+
+    function downloadSubmissionPayload() {
+      const blob = new Blob([JSON.stringify(buildSubmissionPayload(), null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "survey-response-" + state.responseId + ".json";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // ============================================================
+    // 数据收集端点配置
+    // 方案A（推荐）: Formspree — 注册 https://formspree.io，创建表单后把 endpoint URL 填到下面
+    // 方案B: Google Apps Script — 部署 Web App 后将 URL 填入
+    // 方案C: 自建后端 — 填入你自己的 HTTPS API 地址
+    // ============================================================
+    const SUBMISSION_ENDPOINT = ""; // 示例: "https://formspree.io/f/YOUR_FORM_ID"
+
+    function questionNeedsAnswer(question) {
+      const answer = state.answers[question.id];
+      const missingBase = question.required && (answer === undefined || answer === "" || (Array.isArray(answer) && answer.length === 0));
+      const missingOther = isOtherSelected(question) && !String(state.answers[otherAnswerId(question)] || "").trim();
+      return missingBase || missingOther;
+    }
+
+    async function submitSurvey() {
+      if (!SUBMISSION_ENDPOINT) {
+        throw new Error("送信先が設定されていません。運営者にお問い合わせください。");
+      }
+      const response = await fetch(SUBMISSION_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "omit",
+        body: JSON.stringify(buildSubmissionPayload()),
+      });
+      let result = null;
+      try { result = await response.json(); } catch (_) { /* A JSON receipt is required below. */ }
+      if (!response.ok || result?.ok !== true) throw new Error("Submission was not acknowledged by the server.");
+      return { localOnly: false, receipt: result.receipt || null };
+    }
+
+    function renderContact() {
+      progress.hidden = true;
+      app.className = "card";
+      app.dataset.screen = "contact";
+      state.currentQuestionId = "contact";
+      saveDraft("contact");
+
+      const contact = state.contact || { email: "", phone: "" };
+      app.innerHTML = '<div class="card-body">' +
+        '<p class="section-kicker">プレゼントのお届け先</p>' +
+        '<h1 id="contact-title" class="question-title" tabindex="-1">アンケート完了後のプレゼント送付に必要な連絡先を教えてください</h1>' +
+        '<div class="contact-reward-info">' +
+        '<p><strong>アンケート完了後、最新秋物アイテムをプレゼントいたします。</strong></p>' +
+        '<p>メールアドレスまたは電話番号をご登録いただいた方へ、商品の選択案内をお送りします。ご希望の商品をお選びいただいた後、ご指定の住所へ無料でお届けします。</p>' +
+        '<ul>' +
+        '<li>メールアドレスと電話番号は、商品の送付連絡のみに使用します。</li>' +
+        '<li>マーケティングメールや営業電話は一切行いません。</li>' +
+        '<li>提供いただいた情報はアンケート回答と紐づけて管理し、第三者には提供しません。</li>' +
+        '</ul>' +
+        '</div>' +
+        '<div class="contact-field">' +
+        '<label for="contact-email">メールアドレス<span class="contact-optional">（任意）</span></label>' +
+        '<input type="email" id="contact-email" class="text-input contact-input" placeholder="example@email.com" value="' + escapeHtml(contact.email) + '">' +
+        '</div>' +
+        '<div class="contact-field">' +
+        '<label for="contact-phone">電話番号<span class="contact-optional">（任意）</span></label>' +
+        '<input type="tel" id="contact-phone" class="text-input contact-input" placeholder="090-1234-5678" value="' + escapeHtml(contact.phone) + '">' +
+        '</div>' +
+        '<div class="error" role="alert" data-contact-error></div>' +
+        '<div class="actions">' +
+        '<button class="button button-secondary" type="button" data-contact-back>戻る</button>' +
+        '<button class="button button-primary" type="button" data-contact-next>次へ</button>' +
+        '</div>' +
+        '</div>';
+
+      app.querySelector("[data-contact-back]").addEventListener("click", () => {
+        state.returnToReview = false;
+        const flow = getFlow();
+        state.index = flow.length - 1;
+        state.currentQuestionId = flow[state.index]?.id || null;
+        saveDraft(state.currentQuestionId);
+        renderQuestion();
+      });
+
+      app.querySelector("[data-contact-next]").addEventListener("click", () => {
+        const email = app.querySelector("#contact-email").value.trim();
+        const phone = app.querySelector("#contact-phone").value.trim();
+        const error = app.querySelector("[data-contact-error]");
+
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          error.textContent = "メールアドレスの形式を確認してください。";
+          return;
+        }
+        if (phone && !/^[0-9+\-()\s]{7,20}$/.test(phone)) {
+          error.textContent = "電話番号の形式を確認してください。";
+          return;
+        }
+
+        state.contact = { email, phone };
+        error.textContent = "";
+        saveDraft("review");
+        renderReview();
+      });
+
+      const emailInput = app.querySelector("#contact-email");
+      const phoneInput = app.querySelector("#contact-phone");
+      emailInput?.addEventListener("input", () => { state.contact.email = emailInput.value.trim(); saveDraft("contact"); });
+      phoneInput?.addEventListener("input", () => { state.contact.phone = phoneInput.value.trim(); saveDraft("contact"); });
+
+      window.scrollTo({ top: 0, behavior: "auto" });
+      requestAnimationFrame(() => document.getElementById("contact-title")?.focus({ preventScroll: true }));
+    }
+
+    function renderReview() {
+      const flow = getFlow();
+      const missingRequired = flow.filter(questionNeedsAnswer);
+      progress.hidden = true;
+      app.className = "card";
+      app.dataset.screen = "review";
+      state.currentQuestionId = "review";
+      saveDraft("review");
+
+      const grouped = [];
+      flow.forEach((question, index) => {
+        const sectionName = sectionFor(question.id);
+        let section = grouped.find((item) => item.name === sectionName);
+        if (!section) {
+          section = { name: sectionName, items: [] };
+          grouped.push(section);
+        }
+        section.items.push({ question, index });
+      });
+
+      const sections = grouped.map((section) => {
+        const sectionHasMissing = section.items.some(({ question }) => questionNeedsAnswer(question));
+        const items = section.items.map(({ question, index }) =>
+          '<article class="review-item"><span class="review-index">Q' + String(index + 1).padStart(2, "0") + '</span><div>' +
+          '<p class="review-question">' + escapeHtml(question.title) + '</p>' +
+          '<p class="review-answer">' + answerMarkup(question) + '</p>' +
+          '<button class="review-edit" type="button" data-edit-index="' + index + '">変更する</button>' +
+          '</div></article>'
+        ).join("");
+        return '<details class="review-section"' + (sectionHasMissing ? ' open' : '') + '><summary>' + escapeHtml(section.name) + '<span>' + section.items.length + '問</span></summary><div class="review-list">' + items + '</div></details>';
+      }).join("");
+
+      app.innerHTML = '<div class="review-page">' +
+        '<header class="review-header"><p class="section-kicker">最終ページ</p><h1 id="review-title" tabindex="-1">回答内容の確認</h1>' +
+        '<p>以下は、選択・入力した内容です。修正する場合は、各項目の「変更する」から戻れます。</p>' +
+        (missingRequired.length ? '<p class="privacy-note">回答が必要な項目が' + missingRequired.length + '件残っています。「変更する」から回答してください。</p>' : '') + '</header>' +
+        '<div class="review-toolbar"><button class="review-toggle" type="button" data-review-expand>すべて展開する</button>' +
+        '<button class="review-toggle" type="button" data-review-collapse>すべて閉じる</button></div>' +
+        sections +
+        '<p class="privacy-note">「アンケートを送信する」を押すと、回答が送信されます。送信前に内容を確認してください。</p>' +
+        '<p class="review-complete-note" data-review-complete' + (state.reviewComplete ? '' : ' hidden') + '>ご回答ありがとうございました。回答を受け付けました。</p>' +
+        '<p class="error" role="alert" data-submit-error></p>' +
+        '<div class="review-actions"><button class="button button-secondary" type="button" data-review-back>最後の回答に戻る</button>' +
+        '<button class="button button-primary button-wide" type="button" data-review-finish' + (missingRequired.length ? ' disabled' : '') + '>アンケートを送信する</button></div></div>';
+
+      app.querySelector("[data-review-expand]").addEventListener("click", () => {
+        app.querySelectorAll(".review-section").forEach((section) => { section.open = true; });
+      });
+      app.querySelector("[data-review-collapse]").addEventListener("click", () => {
+        app.querySelectorAll(".review-section").forEach((section) => { section.open = false; });
+      });
+
+      app.querySelectorAll("[data-edit-index]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.returnToReview = true;
+          state.reviewComplete = false;
+          state.index = Number(button.dataset.editIndex);
+          state.currentQuestionId = getFlow()[state.index]?.id || null;
+          saveDraft(state.currentQuestionId);
+          renderQuestion();
+        });
+      });
+      app.querySelector("[data-review-back]").addEventListener("click", () => {
+        state.returnToReview = false;
+        state.reviewComplete = false;
+        saveDraft("contact");
+        renderContact();
+      });
+      app.querySelector("[data-review-finish]").addEventListener("click", async (event) => {
+        const button = event.currentTarget;
+        const originalText = button.textContent;
+        const error = app.querySelector("[data-submit-error]");
+        button.disabled = true;
+        button.textContent = "送信中…";
+        error.textContent = "";
+        try {
+          await submitSurvey();
+          state.reviewComplete = true;
+          app.querySelector("[data-review-complete]").hidden = false;
+          button.textContent = "送信済み";
+          state.submissionAcknowledged = true;
+          clearDraft();
+        } catch (err) {
+          error.textContent = err.message || "送信できませんでした。時間をおいて、もう一度お試しください。";
+          button.textContent = originalText;
+          button.disabled = false;
+          saveDraft("review");
+        }
+      });
+      window.scrollTo({ top: 0, behavior: "auto" });
+      requestAnimationFrame(() => document.getElementById("review-title")?.focus({ preventScroll: true }));
+    }
+
+    window.addEventListener("pagehide", () => saveDraft(app.dataset.screen));
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") saveDraft(app.dataset.screen);
+    });
+    renderIntro();
+  </script>
+</body>
+</html>
