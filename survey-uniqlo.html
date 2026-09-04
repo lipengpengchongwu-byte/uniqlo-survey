@@ -2559,7 +2559,11 @@
           state.submissionAcknowledged = true;
           clearDraft();
         } catch (err) {
-          error.textContent = err.message || "送信できませんでした。時間をおいて、もう一度お試しください。";
+          const detail = (err && err.message) ? String(err.message) : "不明なエラー";
+          const isNetwork = detail.toLowerCase().includes("fetch") || detail.toLowerCase().includes("network") || detail.toLowerCase().includes("failed");
+          error.textContent = isNetwork
+            ? "送信できませんでした。通信エラー（" + detail + "）が発生しました。ネットワーク接続・プロキシ・広告ブロッカーをご確認いただくか、数分後に再度お試しください。"
+            : "送信できませんでした。" + detail + "。時間をおいて、もう一度お試しください。";
           button.textContent = originalText;
           button.disabled = false;
           saveDraft("review");
