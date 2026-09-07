@@ -578,6 +578,24 @@
       box-shadow: 0 0 0 1px var(--accent);
     }
 
+    .survey-choice.is-disabled {
+      border-color: #e5e5e5;
+      background: #f4f4f4;
+      color: #a8a8a8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .survey-choice.is-disabled:hover {
+      border-color: #e5e5e5;
+      background: #f4f4f4;
+      transform: none;
+      box-shadow: none;
+    }
+    .survey-choice.is-disabled .choice-input {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
     .choice-input {
       width: 22px;
       height: 22px;
@@ -1618,6 +1636,11 @@
           localStorage.removeItem(STORAGE_KEY);
           return null;
         }
+        // 防御：F03（優先度が最も低い方向）が F01（優先Top2）と重複する矛盾データを除去
+        if (draft.answers && typeof draft.answers === "object" && draft.answers.F03 &&
+            Array.isArray(draft.answers.F01) && draft.answers.F01.includes(draft.answers.F03)) {
+          delete draft.answers.F03;
+        }
         return draft;
       } catch (_) {
         try { localStorage.removeItem(STORAGE_KEY); } catch (_) { /* Storage is unavailable. */ }
@@ -2030,6 +2053,9 @@
       if (question.description) {
         content += `<p class="question-description">${escapeHtml(question.description)}</p>`;
       }
+      if (question.id === "F03" && selectedProposals().length) {
+        content += `<p class="question-description" style="color:#c62828;">※「優先して詳しく検討したい方向」として先ほど選んだ項目は、ここでは選べません。</p>`;
+      }
 
       if (question.type === "text") {
         content += `<textarea class="text-input" aria-labelledby="question-title" maxlength="${question.maxLength || 120}" placeholder="任意で入力してください">${escapeHtml(current || "")}</textarea>
@@ -2044,9 +2070,10 @@
           const selected = question.type === "multi"
             ? Array.isArray(current) && current.includes(option)
             : current === option;
+          const disabledByPriority = question.id === "F03" && selectedProposals().includes(option);
           const inputType = question.type === "multi" ? "checkbox" : "radio";
-          return `<label class="survey-choice${selected ? " selected" : ""}">
-            <input class="choice-input" type="${inputType}" name="${escapeHtml(question.id)}" data-value="${escapeHtml(option)}"${selected ? " checked" : ""}>
+          return `<label class="survey-choice${selected ? " selected" : ""}${disabledByPriority ? " is-disabled" : ""}">
+            <input class="choice-input" type="${inputType}" name="${escapeHtml(question.id)}" data-value="${escapeHtml(option)}"${selected ? " checked" : ""}${disabledByPriority ? " disabled" : ""}>
             <span class="choice-text">${escapeHtml(option)}</span>
           </label>`;
         }).join("");
@@ -2104,6 +2131,10 @@
 
     function selectOption(question, value) {
       if (question.type === "single") {
+        if (question.id === "F03" && selectedProposals().includes(value)) {
+          app.querySelector(".error").textContent = "「優先して詳しく検討したい方向」と重複しています。別の方向を選んでください。";
+          return;
+        }
         state.answers[question.id] = value;
         app.querySelectorAll(".choice-input").forEach((input) => {
           const selected = input.dataset.value === value;
@@ -2156,6 +2187,9 @@
         delete state.answers.F02;
         const proposals = proposalQuestion.options.filter((proposal) => selected.has(proposal) && proposal !== NO_PRIORITY_OPTION);
         if (proposals.length === 1) state.answers.F02 = proposals[0];
+        if (state.answers.F03 && proposals.includes(state.answers.F03)) {
+          delete state.answers.F03;
+        }
       }
       app.querySelector(".error").textContent = "";
       const count = app.querySelector("[data-selection-count]");
