@@ -2530,7 +2530,31 @@
       requestAnimationFrame(() => document.getElementById("contact-title")?.focus({ preventScroll: true }));
     }
 
+    function renderSubmitted() {
+      progress.hidden = true;
+      app.className = "card";
+      app.dataset.screen = "submitted";
+      state.currentQuestionId = "submitted";
+      app.innerHTML = '<div class="card-body">' +
+        '<p class="section-kicker">送信完了</p>' +
+        '<h1 id="submitted-title" tabindex="-1">ご回答ありがとうございました。</h1>' +
+        '<p class="privacy-note">回答を受け付けました。プレゼントのご案内は、ご登録いただいた連絡先にお送りします。この回答はすでに送信済みのため、同じ内容を再度送信することはできません。</p>' +
+        '<div class="actions">' +
+        '<button class="button button-secondary" type="button" data-restart>最初から回答する</button>' +
+        '</div>' +
+        '</div>';
+      app.querySelector("[data-restart]").addEventListener("click", () => {
+        if (!window.confirm("新しい回答を開始しますか？（現在の回答は送信済みです）")) return;
+        restartSurvey();
+      });
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+
     function renderReview() {
+      if (state.submissionAcknowledged) {
+        renderSubmitted();
+        return;
+      }
       const flow = getFlow();
       const missingRequired = flow.filter(questionNeedsAnswer);
       progress.hidden = true;
@@ -2608,10 +2632,9 @@
         try {
           await submitSurvey();
           state.reviewComplete = true;
-          app.querySelector("[data-review-complete]").hidden = false;
-          button.textContent = "送信済み";
           state.submissionAcknowledged = true;
           clearDraft();
+          renderSubmitted();
         } catch (err) {
           const detail = (err && err.message) ? String(err.message) : "不明なエラー";
           const isNetwork = detail.toLowerCase().includes("fetch") || detail.toLowerCase().includes("network") || detail.toLowerCase().includes("failed");
