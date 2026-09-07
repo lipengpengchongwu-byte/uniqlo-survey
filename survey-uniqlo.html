@@ -2598,7 +2598,7 @@
         '<p class="privacy-note">「アンケートを送信する」を押すと、回答が送信されます。送信前に内容を確認してください。</p>' +
         '<p class="review-complete-note" data-review-complete' + (state.reviewComplete ? '' : ' hidden') + '>ご回答ありがとうございました。回答を受け付けました。</p>' +
         '<p class="error" role="alert" data-submit-error></p>' +
-        '<div class="review-actions"><button class="button button-secondary" type="button" data-review-back"' + (state.submitting ? ' disabled' : '') + '>最後の回答に戻る</button>' +
+        '<div class="review-actions"><button class="button button-secondary" type="button" data-review-back' + (state.submitting ? ' disabled' : '') + '>最後の回答に戻る</button>' +
         '<button class="button button-primary button-wide" type="button" data-review-finish' + ((missingRequired.length || state.submitting) ? ' disabled' : '') + '>' + (state.submitting ? '送信中…' : 'アンケートを送信する') + '</button></div></div>';
 
       app.querySelector("[data-review-expand]").addEventListener("click", () => {
